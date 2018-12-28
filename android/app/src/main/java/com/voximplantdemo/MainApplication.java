@@ -1,11 +1,11 @@
 package com.voximplantdemo;
 
 import android.app.Application;
-
-import com.voximplant.reactnative.VoxImplantReactPackage;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 
 import com.facebook.react.ReactApplication;
+import com.voximplant.reactnative.VoxImplantReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;

@@ -51,17 +51,12 @@ export default class LoginManager {
         this.password = password;
         try {
             let state = await this.client.getClientState();
-            console.log('111111');
             if (state === Voximplant.ClientState.DISCONNECTED) {
-                console.log('222222');
                 await this.client.connect();
             }
-            console.log('33333');
             console.log(`the user and password is ${user},  ${password}`);
             let authResult = await this.client.login(user, password);
-            console.log('444444');
             await this._processLoginSuccess(authResult);
-            console.log('5555555');
         } catch (e) {
             console.log('LoginManager: loginWithPassword ' + e.name + e.message);
             switch (e.name) {
@@ -176,7 +171,6 @@ export default class LoginManager {
     };
 
     async _processLoginSuccess(authResult) {
-        console.log('666666');
         this.displayName = authResult.displayName;
 
         // save acceess and refresh token to default preferences to login using

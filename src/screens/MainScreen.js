@@ -17,7 +17,7 @@ import {
     PermissionsAndroid,
     Platform,
     AsyncStorage
-} from 'react-native';
+} from 'react-native'; 
 
 import CallButton from '../components/CallButton';
 import LoginManager from '../manager/LoginManager';
