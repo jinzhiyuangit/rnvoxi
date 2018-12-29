@@ -4,14 +4,24 @@
 
 'use strict';
 
-import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
+import React, { Component } from 'react';
+import { 
+    createStackNavigator, 
+    createSwitchNavigator, 
+    createAppContainer, 
+    createBottomTabNavigator
+} from 'react-navigation';
 import LoginScreen from '../screens/LoginScreen';
 import MainScreen from '../screens/MainScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CallScreen from '../screens/CallScreen';
 import IncomingCallScreen from '../screens/IncomingCallScreen';
+import PeopleScreen from '../screens/PeopleScreen';
+import ChatScreen from '../screens/ChatScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 import COLOR from '../styles/Color';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AppStack = createStackNavigator(
     {
@@ -31,15 +41,51 @@ const AppStack = createStackNavigator(
             headerTintColor: COLOR.WHITE,
             headerTitleStyle: {
                 fontWeight: 'bold',
-            }
+            },
         }
+    }
+);
+
+const BtmTabStack = createBottomTabNavigator(
+    {
+        Home: {
+            screen: AppStack,
+            path: 'video',
+            navigationOptions: {
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ tintColor, focused, horizontal }) => (
+                    <Ionicons
+                        name={'ios-home'}
+                        size={horizontal ? 20 : 26}
+                        style={{ color: tintColor }}
+                    />
+                ),
+            },
+        },
+        People: {
+            screen: PeopleScreen,
+            path: 'people',
+        },
+        Chat: {
+            screen: ChatScreen,
+            path: 'chat',
+        },
+        Settings: {
+            screen: ProfileScreen,
+            path: 'Profile',
+        },
+    },
+    {
+        tabBarOptions: {
+            activeTintColor: '#e91e63',
+        },
     }
 );
 
 const RootStack = createSwitchNavigator(
     {
         Login: LoginScreen,
-        App: AppStack,
+        App: BtmTabStack,
         Call: CallScreen,
         IncomingCall: IncomingCallScreen
     },
