@@ -4,7 +4,7 @@
 
 'use strict';
 
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import LoginScreen from '../screens/LoginScreen';
 import MainScreen from '../screens/MainScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -48,6 +48,8 @@ const RootStack = createSwitchNavigator(
     }
 );
 
-export default RootStack;
+const AppContainer = createAppContainer(RootStack);
+
+export default AppContainer;
 
 

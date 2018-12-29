@@ -86,7 +86,7 @@ export default StyleSheet.create({
         alignSelf: 'center'
     },
     headerButton: {
-        color: COLOR.WHITE,
+        color: COLOR.BLACK,
         fontSize: 16,
         alignSelf: 'center',
         paddingLeft: 10,
